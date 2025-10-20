@@ -1,4 +1,4 @@
-module github.com/atcheri/order-microservices-grpc-proto
+module github.com/atcheri/order-microservices-grpc-proto/golang
 
 go 1.25.3
 
