@@ -25,6 +25,7 @@ type CreateOrderRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	OrderItems    []*OrderItem           `protobuf:"bytes,2,rep,name=order_items,json=orderItems,proto3" json:"order_items,omitempty"`
+	TotalPrice    float32                `protobuf:"fixed32,3,opt,name=total_price,json=totalPrice,proto3" json:"total_price,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -71,6 +72,13 @@ func (x *CreateOrderRequest) GetOrderItems() []*OrderItem {
 		return x.OrderItems
 	}
 	return nil
+}
+
+func (x *CreateOrderRequest) GetTotalPrice() float32 {
+	if x != nil {
+		return x.TotalPrice
+	}
+	return 0
 }
 
 type OrderItem struct {
@@ -277,12 +285,14 @@ var File_order_order_proto protoreflect.FileDescriptor
 
 const file_order_order_proto_rawDesc = "" +
 	"\n" +
-	"\x11order/order.proto\"Z\n" +
+	"\x11order/order.proto\"{\n" +
 	"\x12CreateOrderRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12+\n" +
 	"\vorder_items\x18\x02 \x03(\v2\n" +
 	".OrderItemR\n" +
-	"orderItems\"i\n" +
+	"orderItems\x12\x1f\n" +
+	"\vtotal_price\x18\x03 \x01(\x02R\n" +
+	"totalPrice\"i\n" +
 	"\tOrderItem\x12!\n" +
 	"\fproduct_code\x18\x01 \x01(\tR\vproductCode\x12\x1d\n" +
 	"\n" +
